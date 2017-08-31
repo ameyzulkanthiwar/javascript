@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Refer element By Id</title>
+    <script>
+        function bodyload() {
+            document.getElementById("imgCar").src = "Image/3jpg";
+            document.getElementById("txtId").value = "Amey";
+            document.getElementById("btnId").value = "register";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img src="" width="100" height="100" border="1" alt="Image-1" id="imgCar">
+    </div>
+    <div>
+        Enter Your Name: <input type="text" id="txtId"><input type="button" id="btnId">
+    </div>
+</body>
+</html>
