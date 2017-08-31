@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bom Hirarky</title>
+    <script>
+        function bodyload()
+        {
+            window.document.images[0].src="Images/3.jpg";<!--there is only one image in he doc thats why index of image[0] is zero-->
+            window.document.forms[0].elements[0].value="Amey";
+            <!-- there is only one form thats why forms[0] the index value is zero-->
+            <!-- here elements[0] index is zero which indicates it is pointing to the <input type="text"> element-->
+            window.document.forms[0].elements[1].value="Register";
+            <!-- there is only one form thats why forms[0] the index value is zero-->
+            <!-- here elements[1] index is one which indicates it is pointing to the <input type="button"> element becose here is two index and this one ts second-->
+        }
+    </script>
+</head>
+<body onload="bodyload()"> <!-- this will tell what to do when body part is lode on the browser -->
+    <div>
+        <img src="" width="100" height="100" border="1" alt="Image-1"><!--there is only one image in he doc thats why index of image[0] is zero-->
+    </div>
+    <div>
+        <form>
+            Enter Name: <input type="text"><input type="button">
+        </form>
+    </div>
+</body>
+</html>
