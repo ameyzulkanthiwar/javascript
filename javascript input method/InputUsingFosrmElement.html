@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input using form element</title>
+    <script>
+        function RegisterClick() {
+            document.getElementById("register").style.display="none";
+
+            document.getElementById("details").style.display="block";
+
+            document.getElementById("uname").innerHTML=document.getElementById("txtname").value;
+
+            document.getElementById("age").innerHTML=document.getElementById("txtage").value;
+
+            document.getElementById("dob").innerHTML=document.getElementById("txtdate").value;
+
+            document.getElementById("city").innerHTML=document.getElementById("lstcity").value;
+
+            male = document.getElementById("optmale");
+            female = document.getElementById("optfemale");
+
+            if (male.checked)
+            {
+                gender = male.value;
+            }
+            else
+            {
+                gender = female.value;
+            }
+
+            document.getElementById("gender").innerHTML=gender;
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <form>
+            <div id="register">
+
+                <h2 align="center">Register Form</h2>
+                    <table align="center" width="400" cellspacing="5">
+                    <tr>
+                        <td>User name: </td>
+                        <td> <input type="text" id="txtname"></td>
+                    </tr>
+                    <tr>
+                        <td>Age :</td>
+                        <td><input type="number" min="0" max="60" id="txtage" value="18"></td>
+                    </tr>
+                    <tr>
+                        <td>Date of birth</td>
+                        <td><input type="date" id="txtdate"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender :</td>
+                        <td><input type="radio" name="gender" id="optmale" value="male">Male
+                            <input type="radio" name="gender" id="optfemale" value="female">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Your City</td>
+                        <td>
+                            <select id="lstcity">
+                                <option value="delhi">Delhi</option>
+                                <option value="panjab">Panjab</option>
+                                <option value="maharashtra">Maharashtra</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2">
+                            <input type="button" id="btn" value="register" onclick="RegisterClick()">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br><br>
+
+            <div id="details" style="display: none">
+                <h2 align="center"> Details</h2>
+                <table width="400" border="1" align="center">
+                    <tr>
+                        <td>User Name:</td>
+                        <td id="uname"> </td>
+                    </tr>
+                    <tr>
+                        <td>Age :</td>
+                        <td id="age"> </td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth:</td>
+                        <td id="dob"> </td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td id="gender"> </td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td id="city"> </td>
+                    </tr>
+                </table>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

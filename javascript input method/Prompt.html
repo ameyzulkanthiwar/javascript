@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prompt</title>
+    <script>
+        function NewFolder() {
+            x = prompt("Enter a New Folder name");<!-- <br> is here so that the new folder should be seen on the next line-->
+            document.getElementById("msg").innerHTML+="Folder created by name: "+x+"<br>";
+                                        <!-- here += means  x+=10 => x=x+10 -->
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form>
+            <input type="button" value="New folder" onclick="NewFolder()"><br><br>
+            <div id="msg">
+
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
