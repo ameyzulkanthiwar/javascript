@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Ragistration Form</title>
+    <script>
+        function OrderClik() {
+            document.getElementById("register").style.display="none";
+
+            document.getElementById("details").style.display="block";
+
+            document.getElementById("uname").innerHTML = document.getElementById("txtname").value;
+
+            document.getElementById("cdate").innerHTML = document.getElementById("txtdate").value;
+
+            document.getElementById("days").innerHTML = document.getElementById("totdays").value;
+            var d = document.getElementById("totdays").value;
+
+            document.getElementById("guest").innerHTML = document.getElementById("totperson").value;
+
+            <!--This portion is for the radio button-->
+            <!--value = document.getElementById("id")-->
+            DulexRoom = document.getElementById("optdulex");
+            SweetRoom = document.getElementById("optsweet");
+            if(DulexRoom.checked)
+            {
+                <!--name=value.value-->
+                room = DulexRoom.value;
+                roomcost = 2500;
+                totalcost = 2500;
+            }
+            else
+            {
+                <!--name=value.value-->
+                room = SweetRoom.value;
+                roomcost = 4000;
+                totalcost = 4000;
+            }
+            <!--document.getElementById("id").innerHTML = name;-->
+            document.getElementById("selctedroom").innerHTML = room;
+
+            <!--This section is for the Animities-->
+            <!--value = document.getElementById("id")-->
+            Locker = document.getElementById("optlocker");
+            Ac = document.getElementById("optac");
+
+            if(Ac.checked)
+            {
+                amincost=300;
+                <!--name=value.value-->
+                Aminities = Ac.value;
+
+                totalcost = roomcost + amincost;
+            }
+            else
+            {
+                totalcost = roomcost;
+                TotalBill.innerHTML = totalcost;
+            }
+
+            if(Locker.checked)
+            {
+                amincost=200;
+                Aminities = Locker.value;
+                <!--Aminities = (Locker.value).concat(Ac.value);-->
+                totalcost = roomcost + amincost;
+                if(Ac.checked)
+                {
+                    amincost=500;
+                    Aminities = Locker.value +", "+Ac.value;
+                    <!--Aminities = (Locker.value).concat(Ac.value);-->
+                    totalcost = roomcost + amincost;
+                    TotalBill.innerHTML = totalcost * d;
+                }
+            }
+            else
+            {
+                totalcost = roomcost;
+                TotalBill.innerHTML = totalcost * d;
+            }
+            document.getElementById("Selectedaminnites").innerHTML = Aminities;
+
+            <!--id-->
+            TotalBill.innerHTML = totalcost * d;
+
+            document.getElementById("AdvancePayed").innerHTML = document.getElementById("Amount").value;
+            var amun = document.getElementById("Amount").value;
+            BalanceAmount.innerHTML = (totalcost * d) - amun;
+
+        }
+
+    </script>
+</head>
+<body>
+<div id="register">
+    <form>
+        <font size="5">
+            <h1 align="center">Hotel Ragistration Form</h1>
+            <fieldset>
+                <legend align="center">Costomer Info</legend>
+                <table align="center">
+                    <tr>
+                        <td>Name :</td>
+                        <td><input type="text" id="txtname" placeholder="Enter Your Name"></td>
+                    </tr>
+                    <tr>
+                        <td>Check in Date :</td>
+                        <td><input type="date" id="txtdate" min=""></td>
+                    </tr>
+                    <tr>
+                        <td>Total number of Days :</td>
+                        <td><input type="number" id="totdays" min="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Number of Person :</td>
+                        <td><input type="number" id="totperson" min="1"></td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend align="center">Select Room Type</legend>
+                <table align="center">
+                    <tr>
+                        <td><img src="../Images/DeluxeRoom.jpg" width="300" height="200" alt="image-1"><br>
+                            <input type="radio" name="room" id="optdulex" value="Dulex Room">
+                            Dulax Room (2500/day)
+                        </td>
+                        <td><img src="../Images/SweetRoom.jpg" width="300" height="200" alt="image-2"><br>
+                            <input type="radio" name="room" id="optsweet" value="Sweet Room">
+                            Sweet Room (4000/day)
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend align="center">Select Aminities</legend>
+                <table align="center">
+                    <tr>
+                        <td><img src="../Images/locker.jpg" width="300" height="200" alt="image-3"><br>
+                            <input type="checkbox" id="optlocker" value="Locker" name="Aminities">
+                            Locker (200/day)
+                        </td>
+                        <td><img src="../Images/ac.jpeg" width="300" height="200" alt="image-4"><br>
+                            <input type="checkbox" id="optac" value="Ac" name="Aminities">
+                            A/C (300/day)
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend align="center">Advance Amount</legend>
+                <table align="center">
+                    <tr>
+                        <td>Amount :</td>
+                        <td><input type="number" id="Amount" min="500"></td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <table align="center">
+                <tr>
+                    <td><input type="button" value="bookRoom" onclick="OrderClik()"></td>
+                </tr>
+            </table>
+        </font>
+    </form>
+</div>
+<br><br>
+
+<div id="details" style="display: none">
+    <h2 align="center">Details</h2>
+    <table align="center" width="400">
+        <tr>
+            <td>Guest Name: </td>
+            <td id="uname"></td>
+        </tr>
+        <tr>
+            <td>Check in Date: </td>
+            <td id="cdate"></td>
+        </tr>
+        <tr>
+            <td>Numbers of Days: </td>
+            <td id="days"></td>
+        </tr>
+        <tr>
+            <td>Number Guest Name: </td>
+            <td id="guest"></td>
+        </tr>
+        <tr>
+            <td>Room Type: </td>
+            <td id="selctedroom"></td>
+        </tr>
+        <tr>
+            <td>Aminities: </td>
+            <td id="Selectedaminnites"></td>
+        </tr>
+        <tr>
+            <td>Total Bill: </td>
+            <td id="TotalBill"></td>
+        </tr>
+        <tr>
+            <td>Advance Payed: </td>
+            <td id="AdvancePayed"></td>
+        </tr>
+        <tr>
+            <td>Balance Amount: </td>
+            <td id="BalanceAmount"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
